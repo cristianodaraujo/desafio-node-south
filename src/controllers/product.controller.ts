@@ -1,11 +1,25 @@
-import * as createError from 'http-errors';
 import * as mongoose from 'mongoose';
+import * as createError from 'http-errors';
 import Product from '@models/product.model';
+import ProductSchema from '@schemas/product.shema';
 import { Request, Response, NextFunction } from 'express';
+import ProductInterface from '@interfaces/product.interface';
 
 const getProducts = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const results = await Product.find({}, { __v: 0 });
+    const page = +req.query.page || 1;
+    const limit = +req.query.limit || 10;
+    const skip = (page - 1) * limit;
+    const search = req.query.name ? { 
+      name: { '$regex': req.query.name } 
+    } : {};
+
+    let results = await Product.find(search as string[], { __v: 0 }).skip(skip).limit(limit);
+
+    if (Number(req.query.available)) {
+      results = results.filter((product: ProductInterface) => product.quantity);
+    }
+
     res.send(results);
   } catch (error) {
     console.log(error.message);
@@ -14,32 +28,34 @@ const getProducts = async (req: Request, res: Response, next: NextFunction) => {
 
 const createProduct = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const product = new Product(req.body);
-    const result = await product.save();
-    res.send(result);
+    const result = await ProductSchema.validateAsync(req.body);
+    const product: ProductInterface = new Product(result);
+    const savedProduct = await product.save();
+
+    res.send(savedProduct);
   } catch (error) {
     console.log(error.message);
     if (error.name === 'ValidationError') {
       next(createError(422, error.message));
       return;
-    }
+    } else if (error.isJoi === true) error.status = 422
     next(error);
   }
 };
 
 const findProductById = async (req: Request, res: Response, next: NextFunction) => {
-  const { id } = req.params;
   try {
-    const product = await Product.findById(id);
-    // const product = await Product.findOne({ _id: id });
+    const { id } = req.params;
+    const product: ProductInterface = await Product.findById(id);
+
     if (!product) {
-      throw createError(404, 'Product does not exist.');
+      throw createError(404, 'Produto não existe.');
     }
     res.send(product);
   } catch (error) {
     console.log(error.message);
     if (error instanceof mongoose.Error) {
-      next(createError(400, 'Invalid Product id'));
+      next(createError(400, 'ID de produto inválido.'));
       return;
     }
     next(error);
@@ -49,18 +65,16 @@ const findProductById = async (req: Request, res: Response, next: NextFunction) 
 const updateProduct = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { id } = req.params;
-    const updates = req.body;
-    const options = { new: true };
+    const product: ProductInterface = await Product.findByIdAndUpdate(id, req.body, { new: true });
 
-    const result = await Product.findByIdAndUpdate(id, updates, options);
-    if (!result) {
-      throw createError(404, 'Product does not exist');
+    if (!product) {
+      throw createError(404, 'Produto não existe.');
     }
-    res.send(result);
+    res.send(product);
   } catch (error) {
     console.log(error.message);
     if (error instanceof mongoose.Error) {
-      return next(createError(400, 'Invalid Product Id'));
+      return next(createError(400, 'ID de produto inválido.'));
     }
 
     next(error);
@@ -68,18 +82,18 @@ const updateProduct = async (req: Request, res: Response, next: NextFunction) =>
 };
 
 const deleteProduct = async (req: Request, res: Response, next: NextFunction) => {
-  const { id } = req.params;
   try {
-    const result = await Product.findByIdAndDelete(id);
-    // console.log(result);
-    if (!result) {
-      throw createError(404, 'Product does not exist.');
+    const { id } = req.params;
+    const product: ProductInterface = await Product.findByIdAndDelete(id);
+
+    if (!product) {
+      throw createError(404, 'Produto não existe.');
     }
-    res.send(result);
+    res.send(product);
   } catch (error) {
     console.log(error.message);
     if (error instanceof mongoose.Error) {
-      next(createError(400, 'Invalid Product id'));
+      next(createError(400, 'ID de produto inválido.'));
       return;
     }
     next(error);
@@ -87,7 +101,7 @@ const deleteProduct = async (req: Request, res: Response, next: NextFunction) =>
 };
 
 export default {
-  getProducts, 
+  getProducts,
   createProduct,
   findProductById,
   updateProduct,

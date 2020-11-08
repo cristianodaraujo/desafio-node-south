@@ -1,34 +1,66 @@
 
+#################### USERS ####################
+
+#### Registrando usuário
+POST http://localhost:3000/users/register
+Content-Type: application/json
+
+{
+  "email": "admin2@user.com",
+  "password": "123",
+  "role": "admin"
+}
+
+#### Logando usuário
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+  "email": "admin2@user.com",
+  "password": "123"
+}
+
+
+#################### PRODUCTS ####################
+
 #### Lista de todos os produtos
 GET http://localhost:3000/products
-
+# GET http://localhost:3000/products?page=2&limit=10&name=&available=1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTc4ZWIzYzVjYTllMTY4MGU3MjM3MCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwNDgyMDUwOCwiZXhwIjoxNjA0ODI0MTA4fQ.EhvfFgPzdYtDYeaDth0gcKa3IQm7Mc8Pf7W3gdPig8A
 
 #### Criando um produto
 POST http://localhost:3000/products
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTc4ZWIzYzVjYTllMTY4MGU3MjM3MCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwNDgyMDUwOCwiZXhwIjoxNjA0ODI0MTA4fQ.EhvfFgPzdYtDYeaDth0gcKa3IQm7Mc8Pf7W3gdPig8A
 
 {
-  "name": "Produto Desafio 2",
-  "price": 999
+  "name": "Produto 15",
+  "price": 99.99,
+  "quantity": 0
 }
 
 
 #### Buscando um produto por id
-GET http://localhost:3000/products/5fa7557539a7561efcac176b
+GET http://localhost:3000/products/5fa75a83b02b2702242bb10a
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTc4ZWIzYzVjYTllMTY4MGU3MjM3MCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwNDgyMDUwOCwiZXhwIjoxNjA0ODI0MTA4fQ.EhvfFgPzdYtDYeaDth0gcKa3IQm7Mc8Pf7W3gdPig8A
 
 
 #### Atualizando um produto por id
-PATCH http://localhost:3000/products/5fa7557539a7561efcac176b
+PATCH http://localhost:3000/products/5fa79ae94d87ac2780291a80
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTc4ZWIzYzVjYTllMTY4MGU3MjM3MCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwNDgyMDUwOCwiZXhwIjoxNjA0ODI0MTA4fQ.EhvfFgPzdYtDYeaDth0gcKa3IQm7Mc8Pf7W3gdPig8A
 
 {
-  "name": "Joao Maria",
-  "price": 789
+  "name": "Produto 1",
+  "price": 99.99,
+  "quantity": 2
 }
 
 
 #### Excluindo um produto por id
-DELETE http://localhost:3000/products/5fa755ce39a7561efcac176c
+DELETE http://localhost:3000/products/5fa75a83b02b2702242bb10a
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTc4ZWIzYzVjYTllMTY4MGU3MjM3MCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwNDgyMDUwOCwiZXhwIjoxNjA0ODI0MTA4fQ.EhvfFgPzdYtDYeaDth0gcKa3IQm7Mc8Pf7W3gdPig8A
 
 
 #### 404 / Rota não encontrada
