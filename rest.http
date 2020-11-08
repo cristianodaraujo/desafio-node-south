@@ -1,1 +1,35 @@
-GET http://localhost:3000
+
+#### Lista de todos os produtos
+GET http://localhost:3000/products
+
+
+#### Criando um produto
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+  "name": "Produto Desafio 2",
+  "price": 999
+}
+
+
+#### Buscando um produto por id
+GET http://localhost:3000/products/5fa7557539a7561efcac176b
+
+
+#### Atualizando um produto por id
+PATCH http://localhost:3000/products/5fa7557539a7561efcac176b
+Content-Type: application/json
+
+{
+  "name": "Joao Maria",
+  "price": 789
+}
+
+
+#### Excluindo um produto por id
+DELETE http://localhost:3000/products/5fa755ce39a7561efcac176c
+
+
+#### 404 / Rota não encontrada
+GET http://localhost:3000/5fa606c051a7062aa8ec2e9d

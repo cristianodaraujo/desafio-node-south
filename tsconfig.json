@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "ESNext"
+    ],
+    "target": "es6",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "dist",
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "@controllers/*": ["./src/controllers/*"],
+      "@routes/*": ["./src/routes/*"],
+      "@models/*": ["./src/models/*"],
+      "@config/*": ["./src/config/*"]
+    }
+  },
+  "compileOnSave": false,
+  "exclude": [
+    "dist"
+  ],
+  "include": [
+    "src/**/*.ts"
+  ]
+}
