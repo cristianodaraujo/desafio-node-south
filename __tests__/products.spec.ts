@@ -1,8 +1,15 @@
 import dotenv from 'dotenv';
 import axios from 'axios';
-import gettoken from './token.helper';
 
 dotenv.config();
+
+const gettoken = async (email: string, password: string) => {
+    const url = `${process.env.APP_URL}/users/login`;
+    const data = { email, password };
+    const request = await axios.post(url, data);
+    
+    return request.data.token;
+}
 
 describe('do list products', () => {
     it('listing only available products with a defined limit', async () => {

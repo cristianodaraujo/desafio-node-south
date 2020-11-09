@@ -9,7 +9,7 @@
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "types": [
-      "node"
+      "node", "jest"
     ],
     "typeRoots": [
       "./types", "./node_modules/@types"
