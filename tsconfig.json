@@ -9,7 +9,7 @@
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "types": [
-      "node"
+      "node", "@types/jest"
     ],
     "typeRoots": [
       "./types", "./node_modules/@types"
@@ -17,7 +17,7 @@
   },
   "compileOnSave": false,
   "exclude": [
-    "tests", "dist"
+    "__tests__", "**/*.spec.ts"
   ],
   "include": [
     "src/**/*.ts"
