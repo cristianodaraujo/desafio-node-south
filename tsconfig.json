@@ -8,6 +8,7 @@
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
+    "types": ["node", "jest"],
     "baseUrl": ".",
     "paths": {
       "@controllers/*": ["./src/controllers/*"],
