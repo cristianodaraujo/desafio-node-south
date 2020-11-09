@@ -32,7 +32,7 @@ const login = async (req: Request, res: Response, next: NextFunction) => {
 
         const secret = String(process.env.APP_SECRET);
         const payload = { id: user.id, role: user.role };
-        const token = jwt.sign(payload, secret, { expiresIn: '1h' });
+        const token = jwt.sign(payload, secret, { expiresIn: '7d' });
 
         res.send({ token });
     } catch (error) {

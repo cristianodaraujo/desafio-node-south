@@ -2,7 +2,7 @@
 #################### USERS ####################
 
 #### Registrando usuário
-POST http://localhost:3000/users/register
+POST https://desafio-node-south.herokuapp.com/users/register
 Content-Type: application/json
 
 {
@@ -12,7 +12,7 @@ Content-Type: application/json
 }
 
 #### Logando usuário
-POST http://localhost:3000/users/login
+POST https://desafio-node-south.herokuapp.com/users/login
 Content-Type: application/json
 
 # "email": "client@user.com",
@@ -25,13 +25,12 @@ Content-Type: application/json
 #################### PRODUCTS ####################
 
 #### Lista de todos os produtos
-GET http://localhost:3000/products
-# GET http://localhost:3000/products?page=2&limit=10&name=&available=1
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTc4ZWIzYzVjYTllMTY4MGU3MjM3MCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwNDkwMzEzNSwiZXhwIjoxNjA0OTA2NzM1fQ.l8j2sjufTonb9YDPDfJK415YjqCA08WYOEutkjqCe14
+GET https://desafio-node-south.herokuapp.com/products
+# GET https://desafio-node-south.herokuapp.com/products?page=3&limit=10&name=&available=0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTg3NDdmZjZlYjY1MDQ5YzE0NTc3NSIsInJvbGUiOiJjbGllbnQiLCJpYXQiOjE2MDQ5MzYxNTYsImV4cCI6MTYwNDkzOTc1Nn0.IBlE_zF4l6Tqz_LuWwrJXxsKs_YGYshk8Xlqs04P-1A
 
 #### Criando um produto
-POST http://localhost:3000/products
+POST https://desafio-node-south.herokuapp.com/products
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTg3NDdmZjZlYjY1MDQ5YzE0NTc3NSIsInJvbGUiOiJjbGllbnQiLCJpYXQiOjE2MDQ4OTA0NzIsImV4cCI6MTYwNDg5NDA3Mn0.ZKwRUTxFYHjGqw3wrGntQ0HzZN7MCoWbo-3OhVNidDI
 
@@ -43,12 +42,12 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTg3NDdmZ
 
 
 #### Buscando um produto por id
-GET http://localhost:3000/products/5fa75a83b02b2702242bb10a
+GET https://desafio-node-south.herokuapp.com/products/5fa75a83b02b2702242bb10a
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTc4ZWIzYzVjYTllMTY4MGU3MjM3MCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwNDgyMDUwOCwiZXhwIjoxNjA0ODI0MTA4fQ.EhvfFgPzdYtDYeaDth0gcKa3IQm7Mc8Pf7W3gdPig8A
 
 
 #### Atualizando um produto por id
-PATCH http://localhost:3000/products/5fa79ae94d87ac2780291a80
+PATCH https://desafio-node-south.herokuapp.com/products/5fa79ae94d87ac2780291a80
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTdhMjYwY2JhMTFjNGFiODk1ODNkYSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwNDg3NDU3NSwiZXhwIjoxNjA0ODc4MTc1fQ.DJPU7EtzJljdxj_nNlgVgiTTSin0c-jHdCDJeXXDzwY
 
@@ -60,9 +59,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTdhMjYwY
 
 
 #### Excluindo um produto por id
-DELETE http://localhost:3000/products/5fa75a83b02b2702242bb10a
+DELETE https://desafio-node-south.herokuapp.com/products/5fa75a83b02b2702242bb10a
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTc4ZWIzYzVjYTllMTY4MGU3MjM3MCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwNDgyMDUwOCwiZXhwIjoxNjA0ODI0MTA4fQ.EhvfFgPzdYtDYeaDth0gcKa3IQm7Mc8Pf7W3gdPig8A
 
 
 #### 404 / Rota não encontrada
-GET http://localhost:3000/5fa606c051a7062aa8ec2e9d
+GET https://desafio-node-south.herokuapp.com/5fa606c051a7062aa8ec2e9d

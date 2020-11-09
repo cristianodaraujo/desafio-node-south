@@ -27,8 +27,9 @@ describe('do list products', () => {
 
 describe('do add product', () => {
     it('adding product to store with admin profile', async () => {
+        const name = Math.random().toString(36).substring(4);
         const token = await gettoken('admin@user.com', '123');
-        const data = { name: "Produto Teste Admin", price: 17.70, quantity: 1 };
+        const data = { name: `Produto ${name}`, price: 17.70, quantity: 1 };
         const res = await axios.post(`${process.env.APP_URL}/products`, data, {
             headers: { Authorization: `Bearer ${token}` }
         });
@@ -42,7 +43,7 @@ describe('do add product', () => {
 describe('do add product', () => {
     it('error when trying to add product as a customer', async () => {
         const token = await gettoken('client@user.com', '123');
-        const data = { name: "Produto Teste Client", price: 17.70, quantity: 1 };
+        const data = { name: "Produto Client", price: 17.70, quantity: 1 };
         
         await axios.post(`${process.env.APP_URL}/products`, data, {
             headers: { Authorization: `Bearer ${token}` }
