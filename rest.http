@@ -27,40 +27,40 @@ Content-Type: application/json
 #### Lista de todos os produtos
 GET https://desafio-node-south.herokuapp.com/products
 # GET https://desafio-node-south.herokuapp.com/products?page=3&limit=10&name=&available=0
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTg3NDdmZjZlYjY1MDQ5YzE0NTc3NSIsInJvbGUiOiJjbGllbnQiLCJpYXQiOjE2MDQ5MzYxNTYsImV4cCI6MTYwNDkzOTc1Nn0.IBlE_zF4l6Tqz_LuWwrJXxsKs_YGYshk8Xlqs04P-1A
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTc4ZWIzYzVjYTllMTY4MGU3MjM3MCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwNDk0MDA2MSwiZXhwIjoxNjA1NTQ0ODYxfQ.w5yr-to_TR3KZIxq-819icB8WAHTO9yN_qqMkbAQcWI
 
 #### Criando um produto
 POST https://desafio-node-south.herokuapp.com/products
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTg3NDdmZjZlYjY1MDQ5YzE0NTc3NSIsInJvbGUiOiJjbGllbnQiLCJpYXQiOjE2MDQ4OTA0NzIsImV4cCI6MTYwNDg5NDA3Mn0.ZKwRUTxFYHjGqw3wrGntQ0HzZN7MCoWbo-3OhVNidDI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTc4ZWIzYzVjYTllMTY4MGU3MjM3MCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwNDk0MDA2MSwiZXhwIjoxNjA1NTQ0ODYxfQ.w5yr-to_TR3KZIxq-819icB8WAHTO9yN_qqMkbAQcWI
 
 {
-  "name": "Produto 14",
+  "name": "Produto 19",
   "price": 99.99,
-  "quantity": 0
+  "quantity": 2
 }
 
 
 #### Buscando um produto por id
-GET https://desafio-node-south.herokuapp.com/products/5fa75a83b02b2702242bb10a
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTc4ZWIzYzVjYTllMTY4MGU3MjM3MCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwNDgyMDUwOCwiZXhwIjoxNjA0ODI0MTA4fQ.EhvfFgPzdYtDYeaDth0gcKa3IQm7Mc8Pf7W3gdPig8A
+GET https://desafio-node-south.herokuapp.com/products/5fa79af24d87ac2780291a82
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTc4ZWIzYzVjYTllMTY4MGU3MjM3MCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwNDk0MDA2MSwiZXhwIjoxNjA1NTQ0ODYxfQ.w5yr-to_TR3KZIxq-819icB8WAHTO9yN_qqMkbAQcWI
 
 
 #### Atualizando um produto por id
-PATCH https://desafio-node-south.herokuapp.com/products/5fa79ae94d87ac2780291a80
+PATCH https://desafio-node-south.herokuapp.com/products/5fa79af24d87ac2780291a82
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTdhMjYwY2JhMTFjNGFiODk1ODNkYSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwNDg3NDU3NSwiZXhwIjoxNjA0ODc4MTc1fQ.DJPU7EtzJljdxj_nNlgVgiTTSin0c-jHdCDJeXXDzwY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTc4ZWIzYzVjYTllMTY4MGU3MjM3MCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwNDk0MDA2MSwiZXhwIjoxNjA1NTQ0ODYxfQ.w5yr-to_TR3KZIxq-819icB8WAHTO9yN_qqMkbAQcWI
 
 {
-  "name": "Produto 1",
+  "name": "Produto 3",
   "price": 99.99,
-  "quantity": 3
+  "quantity": 5
 }
 
 
 #### Excluindo um produto por id
-DELETE https://desafio-node-south.herokuapp.com/products/5fa75a83b02b2702242bb10a
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTc4ZWIzYzVjYTllMTY4MGU3MjM3MCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwNDgyMDUwOCwiZXhwIjoxNjA0ODI0MTA4fQ.EhvfFgPzdYtDYeaDth0gcKa3IQm7Mc8Pf7W3gdPig8A
+DELETE https://desafio-node-south.herokuapp.com/products/5fa79afc4d87ac2780291a84
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTc4ZWIzYzVjYTllMTY4MGU3MjM3MCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwNDk0MDA2MSwiZXhwIjoxNjA1NTQ0ODYxfQ.w5yr-to_TR3KZIxq-819icB8WAHTO9yN_qqMkbAQcWI
 
 
 #### 404 / Rota não encontrada
