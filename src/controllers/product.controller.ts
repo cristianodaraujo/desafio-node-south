@@ -29,7 +29,7 @@ const getProducts = async (req: Request, res: Response, next: NextFunction) => {
 const createProduct = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const result = await ProductSchema.validateAsync(req.body);
-    const product: ProductInterface = new Product(result);
+    const product = new Product(result);
     const savedProduct = await product.save();
 
     res.send(savedProduct);

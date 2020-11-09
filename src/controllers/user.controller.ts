@@ -3,12 +3,11 @@ import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 import User from './../models/user.model';
 import UserSchema from './../schemas/user.shema';
-import UserInterface from './../interfaces/user.interface';
 
 const register = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const result = await UserSchema.validateAsync(req.body);
-        const user: UserInterface = new User(result);
+        const user = new User(result);
         const savedUser = await user.save();
 
         res.send(savedUser);
@@ -21,7 +20,7 @@ const register = async (req: Request, res: Response, next: NextFunction) => {
 const login = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const { email, password } = await UserSchema.validateAsync(req.body);
-        const user: UserInterface = await User.findOne({ email });
+        const user = await User.findOne({ email });
         if (!user) {
             throw createError(404, 'Usuário não registrado.');
         }
