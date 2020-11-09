@@ -8,6 +8,7 @@
     "moduleResolution": "node",
     "outDir": "dist",
     "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
       "@controllers/*": ["./src/controllers/*"],
@@ -21,6 +22,7 @@
   },
   "compileOnSave": false,
   "exclude": [
+    "tests",
     "dist"
   ],
   "include": [

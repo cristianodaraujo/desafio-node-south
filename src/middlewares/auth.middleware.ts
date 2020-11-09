@@ -1,8 +1,9 @@
+import RequestInterface from '@interfaces/request.interface';
 import { Request, Response, NextFunction } from 'express';
 import * as createError from 'http-errors';
 import * as jwt from 'jsonwebtoken';
 
-export default (req: Request | any, res: Response, next: NextFunction) => {
+export default (req: RequestInterface, res: Response, next: NextFunction) => {
     const authHeader = req.headers.authorization;
 
     if (!authHeader) {
@@ -15,6 +16,7 @@ export default (req: Request | any, res: Response, next: NextFunction) => {
         const payload = jwt.verify(token, process.env.APP_SECRET);
 
         req.userId = payload.id;
+        req.userRole = payload.role;
 
         next();
     } catch (error) {

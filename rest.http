@@ -6,17 +6,18 @@ POST http://localhost:3000/users/register
 Content-Type: application/json
 
 {
-  "email": "admin2@user.com",
+  "email": "client2@user.com",
   "password": "123",
-  "role": "admin"
+  "role": "client"
 }
 
 #### Logando usuário
 POST http://localhost:3000/users/login
 Content-Type: application/json
 
+# "email": "client@user.com",
 {
-  "email": "admin2@user.com",
+  "email": "client@user.com",
   "password": "123"
 }
 
@@ -24,18 +25,18 @@ Content-Type: application/json
 #################### PRODUCTS ####################
 
 #### Lista de todos os produtos
-GET http://localhost:3000/products
-# GET http://localhost:3000/products?page=2&limit=10&name=&available=1
+# GET http://localhost:3000/products
+GET http://localhost:3000/products?page=2&limit=10&name=&available=1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTc4ZWIzYzVjYTllMTY4MGU3MjM3MCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwNDgyMDUwOCwiZXhwIjoxNjA0ODI0MTA4fQ.EhvfFgPzdYtDYeaDth0gcKa3IQm7Mc8Pf7W3gdPig8A
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTg3NDdmZjZlYjY1MDQ5YzE0NTc3NSIsInJvbGUiOiJjbGllbnQiLCJpYXQiOjE2MDQ4ODk5MzYsImV4cCI6MTYwNDg5MzUzNn0.VFAicBUyDEpBKI4WLkbIHgOSftMvzoQsrunNPdCSuTQ
 
 #### Criando um produto
 POST http://localhost:3000/products
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTc4ZWIzYzVjYTllMTY4MGU3MjM3MCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwNDgyMDUwOCwiZXhwIjoxNjA0ODI0MTA4fQ.EhvfFgPzdYtDYeaDth0gcKa3IQm7Mc8Pf7W3gdPig8A
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTg3NDdmZjZlYjY1MDQ5YzE0NTc3NSIsInJvbGUiOiJjbGllbnQiLCJpYXQiOjE2MDQ4OTA0NzIsImV4cCI6MTYwNDg5NDA3Mn0.ZKwRUTxFYHjGqw3wrGntQ0HzZN7MCoWbo-3OhVNidDI
 
 {
-  "name": "Produto 15",
+  "name": "Produto 14",
   "price": 99.99,
   "quantity": 0
 }
@@ -49,12 +50,12 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTc4ZWIzY
 #### Atualizando um produto por id
 PATCH http://localhost:3000/products/5fa79ae94d87ac2780291a80
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTc4ZWIzYzVjYTllMTY4MGU3MjM3MCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwNDgyMDUwOCwiZXhwIjoxNjA0ODI0MTA4fQ.EhvfFgPzdYtDYeaDth0gcKa3IQm7Mc8Pf7W3gdPig8A
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTdhMjYwY2JhMTFjNGFiODk1ODNkYSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwNDg3NDU3NSwiZXhwIjoxNjA0ODc4MTc1fQ.DJPU7EtzJljdxj_nNlgVgiTTSin0c-jHdCDJeXXDzwY
 
 {
   "name": "Produto 1",
   "price": 99.99,
-  "quantity": 2
+  "quantity": 3
 }
 
 

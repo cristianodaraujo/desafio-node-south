@@ -5,7 +5,7 @@ import * as express from 'express';
 
 const app: express.Application = express();
 
-export default (route: express.Router) => {
+export default (route?: express.Router) => {
     // app.use(cors());
     app.use(express.json({ limit: '50mb' }));
     app.use(express.urlencoded({
@@ -13,7 +13,9 @@ export default (route: express.Router) => {
         extended: true
     }));
 
-    app.use(route);
+    if (route) {
+        app.use(route);
+    }
 
     // 404 handler && pass to error handler
     app.use((req: Req, res: Res, next: Next) => {
@@ -34,4 +36,6 @@ export default (route: express.Router) => {
     app.listen(process.env.PORT || 3000, () => {
         console.log('Server started...');
     });
+
+    return app;
 }
