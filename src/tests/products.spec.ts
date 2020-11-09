@@ -8,7 +8,7 @@ describe('do list products', () => {
     it('listing only available products with a defined limit', async () => {
         const token = await gettoken('admin@user.com', '123');
 
-        const res = await axios.get(`${process.env.URI_LOCAL}/products`, {
+        const res = await axios.get(`${process.env.URL_PROD}/products`, {
             headers: { Authorization: `Bearer ${token}` },
             params: { limit: 5, available: 1 }
         });
@@ -22,7 +22,7 @@ describe('do add product', () => {
     it('adding product to store with admin profile', async () => {
         const token = await gettoken('admin@user.com', '123');
         const data = { name: "Produto Teste Admin", price: 17.70, quantity: 1 };
-        const res = await axios.post(`${process.env.URI_LOCAL}/products`, data, {
+        const res = await axios.post(`${process.env.URL_PROD}/products`, data, {
             headers: { Authorization: `Bearer ${token}` }
         });
 
@@ -37,7 +37,7 @@ describe('do add product', () => {
         const token = await gettoken('client@user.com', '123');
         const data = { name: "Produto Teste Client", price: 17.70, quantity: 1 };
         
-        await axios.post(`${process.env.URI_LOCAL}/products`, data, {
+        await axios.post(`${process.env.URL_PROD}/products`, data, {
             headers: { Authorization: `Bearer ${token}` }
         }).catch((err) => {
             expect(err.response.status).toBe(401);

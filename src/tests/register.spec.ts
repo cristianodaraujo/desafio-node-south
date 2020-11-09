@@ -11,7 +11,7 @@ describe('do register', () => {
             password: '123',
             role: 'client'
         };
-        const res = await axios.post(`${process.env.URI_LOCAL}/users/register`, data);
+        const res = await axios.post(`${process.env.URL_PROD}/users/register`, data);
 
         expect(res.status).toEqual(200);
         expect(res.data).toHaveProperty('_id');

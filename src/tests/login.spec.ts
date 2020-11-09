@@ -9,7 +9,7 @@ describe('do login', () => {
             email: 'admin@user.com',
             password: '123'
         };
-        const res = await axios.post(`${process.env.URI_LOCAL}/users/login`, data);
+        const res = await axios.post(`${process.env.URL_PROD}/users/login`, data);
 
         expect(res.status).toEqual(200);
         expect(res.data).toHaveProperty('token');
