@@ -1,8 +1,8 @@
-import Database from '@config/db.config';
-import AppConfig from '@config/app.config';
-import InitRoutes from '@routes/index.route';
+import Database from './config/db.config';
+import AppConfig from './config/app.config';
+import InitRoutes from './routes/index.route';
 
-import * as dotenv from 'dotenv';
+import dotenv from 'dotenv';
 
 dotenv.config();
 

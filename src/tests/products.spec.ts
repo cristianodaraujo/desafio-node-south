@@ -1,4 +1,4 @@
-import * as dotenv from 'dotenv';
+import dotenv from 'dotenv';
 import axios from 'axios';
 import gettoken from './token.helper';
 
@@ -8,7 +8,7 @@ describe('do list products', () => {
     it('listing only available products with a defined limit', async () => {
         const token = await gettoken('admin@user.com', '123');
 
-        const res = await axios.get(`${process.env.URL_PROD}/products`, {
+        const res = await axios.get(`${process.env.APP_URL}/products`, {
             headers: { Authorization: `Bearer ${token}` },
             params: { limit: 5, available: 1 }
         });
@@ -22,7 +22,7 @@ describe('do add product', () => {
     it('adding product to store with admin profile', async () => {
         const token = await gettoken('admin@user.com', '123');
         const data = { name: "Produto Teste Admin", price: 17.70, quantity: 1 };
-        const res = await axios.post(`${process.env.URL_PROD}/products`, data, {
+        const res = await axios.post(`${process.env.APP_URL}/products`, data, {
             headers: { Authorization: `Bearer ${token}` }
         });
 
@@ -37,7 +37,7 @@ describe('do add product', () => {
         const token = await gettoken('client@user.com', '123');
         const data = { name: "Produto Teste Client", price: 17.70, quantity: 1 };
         
-        await axios.post(`${process.env.URL_PROD}/products`, data, {
+        await axios.post(`${process.env.APP_URL}/products`, data, {
             headers: { Authorization: `Bearer ${token}` }
         }).catch((err) => {
             expect(err.response.status).toBe(401);

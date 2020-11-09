@@ -17,7 +17,7 @@ Content-Type: application/json
 
 # "email": "client@user.com",
 {
-  "email": "client@user.com",
+  "email": "admin@user.com",
   "password": "123"
 }
 
@@ -25,10 +25,10 @@ Content-Type: application/json
 #################### PRODUCTS ####################
 
 #### Lista de todos os produtos
-# GET http://localhost:3000/products
-GET http://localhost:3000/products?page=2&limit=10&name=&available=1
+GET http://localhost:3000/products
+# GET http://localhost:3000/products?page=2&limit=10&name=&available=1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTg3NDdmZjZlYjY1MDQ5YzE0NTc3NSIsInJvbGUiOiJjbGllbnQiLCJpYXQiOjE2MDQ4ODk5MzYsImV4cCI6MTYwNDg5MzUzNn0.VFAicBUyDEpBKI4WLkbIHgOSftMvzoQsrunNPdCSuTQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYTc4ZWIzYzVjYTllMTY4MGU3MjM3MCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwNDkwMzEzNSwiZXhwIjoxNjA0OTA2NzM1fQ.l8j2sjufTonb9YDPDfJK415YjqCA08WYOEutkjqCe14
 
 #### Criando um produto
 POST http://localhost:3000/products

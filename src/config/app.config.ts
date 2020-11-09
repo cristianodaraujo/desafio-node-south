@@ -1,12 +1,12 @@
 import { Request as Req, Response as Res, NextFunction as Next } from 'express';
-import * as createError from 'http-errors';
-import * as express from 'express';
-// import * as cors from 'cors';
+import createError from 'http-errors';
+import express from 'express';
+import cors from 'cors';
 
 const app: express.Application = express();
 
 export default (route: express.Router) => {
-    // app.use(cors());
+    app.use(cors());
     app.use(express.json({ limit: '50mb' }));
     app.use(express.urlencoded({
         limit: '50mb',

@@ -1,9 +1,9 @@
-import * as createError from 'http-errors';
+import createError from 'http-errors';
 import { Request, Response, NextFunction } from 'express';
-import * as jwt from 'jsonwebtoken';
-import User from '@models/user.model';
-import UserSchema from '@schemas/user.shema';
-import UserInterface from '@interfaces/user.interface';
+import jwt from 'jsonwebtoken';
+import User from './../models/user.model';
+import UserSchema from './../schemas/user.shema';
+import UserInterface from './../interfaces/user.interface';
 
 const register = async (req: Request, res: Response, next: NextFunction) => {
     try {

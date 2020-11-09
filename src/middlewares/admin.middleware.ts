@@ -1,6 +1,6 @@
-import RequestInterface from '@interfaces/request.interface';
+import RequestInterface from './../interfaces/request.interface';
 import { Request, Response, NextFunction } from 'express';
-import * as createError from 'http-errors';
+import createError from 'http-errors';
 
 export default (req: RequestInterface, res: Response, next: NextFunction) => {
     try {

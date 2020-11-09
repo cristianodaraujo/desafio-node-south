@@ -1,7 +1,7 @@
-import RequestInterface from '@interfaces/request.interface';
+import RequestInterface from './../interfaces/request.interface';
 import { Request, Response, NextFunction } from 'express';
-import * as createError from 'http-errors';
-import * as jwt from 'jsonwebtoken';
+import createError from 'http-errors';
+import jwt from 'jsonwebtoken';
 
 export default (req: RequestInterface, res: Response, next: NextFunction) => {
     const authHeader = req.headers.authorization;

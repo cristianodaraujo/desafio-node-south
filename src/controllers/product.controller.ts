@@ -1,9 +1,9 @@
-import * as mongoose from 'mongoose';
-import * as createError from 'http-errors';
-import Product from '@models/product.model';
-import ProductSchema from '@schemas/product.shema';
+import mongoose from 'mongoose';
+import createError from 'http-errors';
+import Product from './../models/product.model';
+import ProductSchema from './../schemas/product.shema';
 import { Request, Response, NextFunction } from 'express';
-import ProductInterface from '@interfaces/product.interface';
+import ProductInterface from './../interfaces/product.interface';
 
 const getProducts = async (req: Request, res: Response, next: NextFunction) => {
   try {

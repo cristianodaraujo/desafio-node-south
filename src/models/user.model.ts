@@ -1,6 +1,6 @@
 import { Schema, model } from 'mongoose';
-import * as bcrypt from 'bcrypt';
-import UserInterface from '@interfaces/user.interface';
+import bcrypt from 'bcrypt';
+import UserInterface from './../interfaces/user.interface';
 
 const UserModel = new Schema({
     email: {
