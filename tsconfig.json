@@ -8,22 +8,40 @@
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
-    "types": ["node", "jest"],
+    "types": [
+      "reflect-metadata", "node", "jest"
+    ],
+    "typeRoots": [
+      "./types", "./node_modules/@types"
+    ],
     "baseUrl": ".",
     "paths": {
-      "@controllers/*": ["./src/controllers/*"],
-      "@middlewares/*": ["./src/middlewares/*"],
-      "@interfaces/*": ["./src/interfaces/*"],
-      "@schemas/*": ["./src/schemas/*"],
-      "@routes/*": ["./src/routes/*"],
-      "@models/*": ["./src/models/*"],
-      "@config/*": ["./src/config/*"]
+      "@controllers/*": [
+        "./src/controllers/*"
+      ],
+      "@middlewares/*": [
+        "./src/middlewares/*"
+      ],
+      "@interfaces/*": [
+        "./src/interfaces/*"
+      ],
+      "@schemas/*": [
+        "./src/schemas/*"
+      ],
+      "@routes/*": [
+        "./src/routes/*"
+      ],
+      "@models/*": [
+        "./src/models/*"
+      ],
+      "@config/*": [
+        "./src/config/*"
+      ]
     }
   },
   "compileOnSave": false,
   "exclude": [
-    "tests",
-    "dist"
+    "tests", "dist"
   ],
   "include": [
     "src/**/*.ts"
