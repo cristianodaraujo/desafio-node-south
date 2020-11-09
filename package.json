@@ -4,8 +4,10 @@
   "description": "API em NodeJS",
   "main": "index.js",
   "scripts": {
+    "tsc": "tsc",
     "start": "tsc && node dist/index.js",
-    "test": "jest"
+    "test": "jest",
+    "postinstall": "npm run tsc"
   },
   "author": "Cristiano Araujo",
   "license": "ISC",
